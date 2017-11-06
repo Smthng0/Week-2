@@ -27,4 +27,15 @@
    interface Beta{}  
    public class Alpha implements Zeta{}  
    public class Delta extends Alpha implements Beta{}
+
+## Excercise 9.a, page 266:
+### pick which line add one object for the Garbage Collector
+
+**lines 2, 4, 8**
+
+## Excercise 9.b, page 267:
+### several objects added, find the one with the most reference variables and lost how many there are...
+
+**The object with the most reference variables is: "Honey (11)" and there are x reference varables...**
+*i didnt catch the one that creates the honey class from the racoon class which calles the kit class, there are 12 in total...*
    
