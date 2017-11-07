@@ -1,9 +1,11 @@
 package dream.factory.learning.chapter10;
 //exercise 10.c, page 312, not need all magnets
 
+import java.util.Calendar;
+
 import static java.lang.System.out;
+
 //import java.io.*;
-import java.util.*;
 
 public class FullMoons {
 
