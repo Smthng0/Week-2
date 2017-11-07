@@ -31,7 +31,7 @@
 ## Excercise 9.a, page 266:
 ### pick which line add one object for the Garbage Collector
 
-**lines 2, 4, ~~6~~ 8**
+**lines 2, 4, ~~6~~, 8**
 
 ## Excercise 9.b, page 267:
 ### several objects added, find the one with the most reference variables and lost how many there are...
