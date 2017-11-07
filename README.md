@@ -31,19 +31,19 @@
 ## Excercise 9.a, page 266:
 ### pick which line add one object for the Garbage Collector
 
-**lines 2, 4, 8**
+**lines 2, 4, ~~6~~ 8**
 
 ## Excercise 9.b, page 267:
 ### several objects added, find the one with the most reference variables and lost how many there are...
 
-**The object with the most reference variables is: "Honey (11)" and there are x reference varables...**
+**The object with the most reference variables is: "Honey (11)" and there are x reference varables...**  
 *i didnt catch the one that creates the honey class from the racoon class which calles the kit class, there are 12 in total...*
 
 ## Excercise 10.a, page 310:
 ### code, will it compile and what output?
 
-Output 2 will be out, statics run first and then the constructors (when the class is called upon)
-I missed that the StaticSuper is missing curves...
+Output 2 will be out, statics run first and then the constructors (when the class is called upon)  
+*I missed that the StaticSuper is missing curves...*
 
 ## Excercise 10.b, page 311:
 ### true or false?
