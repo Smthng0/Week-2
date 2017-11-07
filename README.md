@@ -38,4 +38,30 @@
 
 **The object with the most reference variables is: "Honey (11)" and there are x reference varables...**
 *i didnt catch the one that creates the honey class from the racoon class which calles the kit class, there are 12 in total...*
+
+## Excercise 10.a, page 310:
+### code, will it compile and what output?
+
+Output 2 will be out, statics run first and then the constructors (when the class is called upon)
+I missed that the StaticSuper is missing curves...
+
+## Excercise 10.b, page 311:
+### true or false?
+
+1. False
+2. False
+3. True
+4. False
+5. True
+6. False
+7. True
+8. True
+9. False
+10. False
+11. False
+12. True
+13. False
+14. False
+
+ 
    
