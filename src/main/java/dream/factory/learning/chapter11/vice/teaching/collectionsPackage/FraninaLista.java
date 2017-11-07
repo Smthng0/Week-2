@@ -1,18 +1,7 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
-public class FraninaLista implements ViceInterface{
-    private Node root = null;
-
-    @Override
-    public void add(int input) {
-
-    }
-
-
-    @Override
-    public void remove(int input) {
-
-    }
+public class FraninaLista {
+    protected Node root = null;
 
     public void addToLast(int input) {
         if(root == null){
