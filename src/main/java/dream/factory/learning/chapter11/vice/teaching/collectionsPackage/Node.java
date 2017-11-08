@@ -3,6 +3,7 @@ package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 public class Node {
     private int value;
     private Node nextNode;
+    private Node previousNode;
 
     public Node(int value) {
         this.value = value;
@@ -22,5 +23,13 @@ public class Node {
 
     public void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
+    }
+
+    public Node getPreviousNode() {
+        return previousNode;
+    }
+
+    public void setPreviousNode(Node previousNode) {
+        this.previousNode = previousNode;
     }
 }

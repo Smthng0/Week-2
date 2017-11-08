@@ -1,61 +1,93 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
 public class Lista extends BaseLista {
+    private Node tail = null;
 
 
     public void addToLast(int input) {
         if(head == null){
             this.head = new Node(input);
+            tail = this.head;
             return;
         }
 
-        Node iterator = head;
-        while (iterator.getNextNode() != null){
-            iterator = iterator.getNextNode();
-        }
-
         Node novi = new Node(input);
-        iterator.setNextNode(novi);
+        novi.setPreviousNode(tail);
+        tail.setNextNode(novi);
+        this.tail = tail.getNextNode();
+
     }
 
     public void addToFirst(int input){
         Node novi = new Node(input);
         novi.setNextNode(head);
+        if(head != null){
+            head.setPreviousNode(novi);
+        }
         head = novi;
+
+        if (head.getNextNode() == null){
+            tail = head;
+        }
     }
+
 
     public Node getLastNode () {
         if (head == null){
             return head;
         }
 
-        return findLastNode2(head);
+        return tail;
     }
 
-    private Node findLastNode(Node node){
-        if(node.getNextNode() == null){
-            return node;
-        }
-
-        return findLastNode(node.getNextNode());
-    }
-
-    private Node findLastNode2(Node node){
-        while (node.getNextNode() != null){
-            node = node.getNextNode();
-        }
-
-        return node;
-    }
 
 
     @Override
     public void add(int input) {
-        //TODO: NAPIŠI
+        addToLast(input);
     }
 
     @Override
     public void remove(int input) {
-        //TODO: NAPIŠI
+        //hm...?
+    }
+
+    public Integer removeFromHead(int input) {
+        if(head == null){
+            return null;
+        }
+
+        Node iterator = head;
+        while (iterator.getNextNode() != null
+                && iterator.getNextNode().getValue() != input){
+            iterator = iterator.getNextNode();
+        }
+
+        if (iterator == null){
+            return null;
+        }
+        Node toRemove = iterator;
+        if (iterator.getPreviousNode() == null){
+            head = iterator.getNextNode();
+            head.setPreviousNode(null);
+        } else{
+            //
+        }
+
+
+        Node previousNode = iterator.getPreviousNode();
+        Node nextNode = iterator.getNextNode();
+
+        if (nextNode != null){
+            previousNode.setNextNode(nextNode);
+        } else {
+            tail = previousNode;
+        }
+
+
+        nextNode.setPreviousNode(previousNode);
+
+
+        return toRemove.getValue();
     }
 }
