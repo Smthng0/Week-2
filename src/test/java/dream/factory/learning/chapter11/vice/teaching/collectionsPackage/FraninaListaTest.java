@@ -1,6 +1,5 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
-import dream.factory.learning.chapter11.vice.teaching.collections.Node;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,7 +8,7 @@ public class FraninaListaTest {
 
     @Test
     public void print_hugelist(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
 
         for(int i = 0; i < 100_000; i++){
             lista.addToFirst(i);
@@ -20,7 +19,7 @@ public class FraninaListaTest {
 
     @Test
     public void print_list(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
 
         for(int i = 0; i < 10; i++){
             lista.addToFirst(i);
@@ -31,14 +30,14 @@ public class FraninaListaTest {
 
     @Test
     public void print_Emptylist(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
 
         System.out.println(lista.toString());
     }
 
     @Test
     public void print_Lastlist(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
 
 
         for(int i = 0; i < 10; i++){
@@ -50,7 +49,7 @@ public class FraninaListaTest {
 
     @Test
     public void zadnji_Element(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
         assertEquals(null , lista.getLastNode());
 
 
@@ -65,7 +64,7 @@ public class FraninaListaTest {
 
     @Test
     public void prvi_Element(){
-        FraninaLista lista = new FraninaLista();
+        Lista lista = new Lista();
         assertEquals(null , lista.getLastNode());
 
 
