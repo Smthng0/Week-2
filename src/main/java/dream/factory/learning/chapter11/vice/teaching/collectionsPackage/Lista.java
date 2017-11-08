@@ -1,5 +1,7 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
+import java.util.Optional;
+
 public class Lista extends BaseLista {
     private Node tail = null;
 
@@ -53,8 +55,10 @@ public class Lista extends BaseLista {
     }
 
     public Integer removeFromHead(int input) {
-        if(head == null){
-            return null;
+        Optional<Integer> integer = checkCornerCases(input);
+
+        if(integer.isPresent()){
+            return integer.get();
         }
 
         Node iterator = head;
@@ -63,31 +67,96 @@ public class Lista extends BaseLista {
             iterator = iterator.getNextNode();
         }
 
-        if (iterator == null){
+        update(iterator);
+
+        return iterator.getValue();
+    }
+
+    public Integer removeLast(){
+        if(tail == null){
             return null;
         }
-        Node toRemove = iterator;
-        if (iterator.getPreviousNode() == null){
-            head = iterator.getNextNode();
-            head.setPreviousNode(null);
-        } else{
-            //
+        int value = tail.getValue();
+        tail = tail.getPreviousNode();
+
+        if(tail == null){
+            head = null;
+        } else {
+            tail.setNextNode(null);
         }
 
+        return value;
+    }
 
+    public Integer removeFromTail(int input) {
+        Optional<Integer> integer = checkCornerCases(input);
+
+        if(integer.isPresent()){
+            return integer.get();
+        }
+
+        Node iterator = tail;
+        while (iterator.getPreviousNode() != null
+                && iterator.getValue() != input){
+            iterator = iterator.getPreviousNode();
+        }
+
+        update(iterator);
+
+        return iterator.getValue();
+    }
+
+    public String toStringTail() {
+        if(tail == null){
+            return "";
+        }
+
+        Node iterator = this.tail;
+        StringBuilder result = new StringBuilder();
+        result.append(iterator.getValue());
+
+        while (iterator.getPreviousNode() != null){
+            result.insert(0, " -> ");
+            iterator = iterator.getPreviousNode();
+            result = result.insert(0, iterator.getValue());
+        }
+
+        return result.toString();
+    }
+
+    private Optional<Integer> checkCornerCases(int input) {
+        if(head == null || tail == null){
+            return Optional.ofNullable(null);
+        }
+
+        if(tail == head
+                && tail.getValue() == input){
+            int value = head.getValue();
+            tail = head = null;
+            return Optional.of(value);
+        }
+
+        return Optional.empty();
+    }
+
+    private void update(Node iterator) {
         Node previousNode = iterator.getPreviousNode();
         Node nextNode = iterator.getNextNode();
 
-        if (nextNode != null){
-            previousNode.setNextNode(nextNode);
+        if(previousNode == null){
+            head = nextNode;
+            head.setPreviousNode(null);
         } else {
-            tail = previousNode;
+            previousNode.setNextNode(nextNode);
         }
 
-
-        nextNode.setPreviousNode(previousNode);
-
-
-        return toRemove.getValue();
+        if (nextNode == null){
+            tail = previousNode;
+            tail.setNextNode(null);
+        } else {
+            nextNode.setPreviousNode(previousNode);
+        }
     }
+
+
 }

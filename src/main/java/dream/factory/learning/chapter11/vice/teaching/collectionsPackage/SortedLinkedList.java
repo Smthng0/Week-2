@@ -54,7 +54,4 @@ public class SortedLinkedList extends BaseLista {
         }
     }
 
-    public boolean isEmpty(){
-        return head == null;
-    }
 }

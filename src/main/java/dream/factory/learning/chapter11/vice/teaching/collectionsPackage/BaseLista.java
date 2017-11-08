@@ -2,6 +2,9 @@ package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
 public abstract class BaseLista implements BaseCollection {
     protected Node head = null;
+    public boolean isEmpty(){
+        return head == null;
+    }
 
     public int size() {
         int x = 0;
@@ -32,5 +35,9 @@ public abstract class BaseLista implements BaseCollection {
         }
 
         return result.toString();
+    }
+
+    public Node getFirstNode() {
+        return head;
     }
 }
