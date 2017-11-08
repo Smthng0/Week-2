@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 
 public class StackTest {
     @Test (expected = RuntimeException.class)
-    public void pop_and_push_OK() throws Exception {
+    public void pop_and_push_OK() {
         Stack stack = new Stack();
 
         stack.push(5);
@@ -28,7 +28,7 @@ public class StackTest {
         assertEquals("",stack.toString());
         assertEquals(0, stack.size());
 
-
+        stack.pop();
 
     }
 
