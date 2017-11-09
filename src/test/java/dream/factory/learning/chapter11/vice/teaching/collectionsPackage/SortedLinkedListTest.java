@@ -1,6 +1,10 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage;
 
+import org.joda.time.Duration;
+import org.joda.time.Instant;
 import org.junit.Test;
+
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -154,5 +158,37 @@ public class SortedLinkedListTest {
 
         assertEquals("1 -> 2 -> 3", lista.toString());
     }
+
+    @Test
+    public void micanje_pola_OK() throws Exception {
+        SortedLinkedList lista = new SortedLinkedList();
+        Instant startTime = Instant.now();
+
+        for (int i = 999_999; i >= 0; i--){
+            lista.add(i);
+        }
+
+        Instant endTime = Instant.now();
+        Duration duration = new Duration(startTime, endTime);
+
+        System.out.println(duration.getMillis() + " ms");
+
+        Random removeStream = new Random();
+        int pola = lista.size()/2;
+        int [] removeArray = removeStream.ints(pola, 1, 1_000_000).toArray();
+
+        startTime = Instant.now();
+
+        for (int i = 0; i < pola; i++){
+            lista.remove(removeArray[i]);
+        }
+
+        endTime = Instant.now();
+        duration = new Duration(startTime, endTime);
+
+        System.out.println(duration.getMillis() + " ms");
+
+    }
+
 
 }

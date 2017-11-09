@@ -28,7 +28,7 @@ public class Queue {
 
         int result = backingArray[0];
         int i = 0;
-        while (i <= count){
+        while (i < count){
             backingArray[i] = backingArray[i+1];
             i++;
         }
@@ -36,6 +36,31 @@ public class Queue {
         count--;
 
         return result;
+    }
+
+    @SuppressWarnings("Duplicates")
+    public void remove(int input){
+        int i = 0;
+
+        while (backingArray[i] != input
+                && i < count){
+            i++;
+        }
+
+        if (backingArray[i] != input){
+            return;
+        }
+
+        while (i < count) {
+            backingArray[i] = backingArray [i+1];
+            i++;
+        }
+
+        if (i+1 == count) {
+            backingArray[i] = 0;
+        }
+
+        count--;
     }
 
     public Integer size (){
@@ -52,7 +77,7 @@ public class Queue {
         int i = 0;
         result.append(backingArray[i]);
 
-        while (i < (count)){
+        while (i < count){
             result.append(" -> ");
             i++;
             result = result.append(backingArray[i]);

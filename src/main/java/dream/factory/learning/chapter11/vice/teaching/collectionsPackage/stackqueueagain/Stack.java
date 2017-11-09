@@ -1,5 +1,6 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage.stackqueueagain;
 
+
 public class Stack {
     private int[] backingArray;
     private int count = -1;
@@ -38,6 +39,31 @@ public class Stack {
             throw new RuntimeException("nema ničega");
         }
         return backingArray[count];
+    }
+
+    @SuppressWarnings("Duplicates")
+    public void remove(int input){
+        int i = 0;
+
+        while (backingArray[i] != input
+                && i < count){
+            i++;
+        }
+
+        if (backingArray[i] != input){
+            return;
+        }
+
+        while (i < count) {
+            backingArray[i] = backingArray [i+1];
+            i++;
+        }
+
+        if (i+1 == count) {
+            backingArray[i] = 0;
+        }
+
+        count--;
     }
 
     @Override
