@@ -32,7 +32,7 @@ public class StackTest {
         assertEquals("",stack.toString());
         assertEquals(0, stack.size());
 
-        stack.pop();
+        stack.pop(); //tu bude exception
 
     }
 
@@ -113,5 +113,37 @@ public class StackTest {
         System.out.println(duration.getMillis() + " ms");
 
     }
+
+    @Test
+    public void exception_OK() throws Exception {
+        Stack stack = new Stack(1_000_000);
+        Instant startTime = Instant.now();
+
+        for (int i = 1_000_000; i > 0; i--){
+            stack.push(i);
+        }
+
+        Instant endTime = Instant.now();
+        Duration duration = new Duration(startTime, endTime);
+
+        System.out.println(duration.getMillis() + " ms");
+
+        Random removeStream = new Random();
+        int pola = stack.size()/2;
+        int [] removeArray = removeStream.ints(pola, 1, 1_000_000).toArray();
+
+        startTime = Instant.now();
+
+        for (int i = 0; i < pola; i++){
+            stack.remove(removeArray[i]);
+        }
+
+        endTime = Instant.now();
+        duration = new Duration(startTime, endTime);
+
+        System.out.println(duration.getMillis() + " ms");
+
+    }
+
 
 }

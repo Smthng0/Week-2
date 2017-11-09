@@ -5,7 +5,6 @@ public class Stack {
     private int[] backingArray;
     private int count = -1;
 
-
     public Stack(int maxSize) {
         backingArray = new int[maxSize];
     }
@@ -14,9 +13,9 @@ public class Stack {
         this(10);
     }
 
-    public Integer pop(){
+    public Integer pop() throws StackException {
         if(count < 0){
-            throw new RuntimeException("nema ničega");
+            throw new StackEmptyException();
         }
 
         int result = backingArray[count];
@@ -26,23 +25,27 @@ public class Stack {
         return result;
     }
 
-    public void push (int input){
+    public void push (int input) throws StackException{
         if (count == backingArray.length){
-            throw new RuntimeException("pun sam");
+            throw new StackEmptyException();
         }
 
         backingArray[count++ + 1] = input;
     }
 
-    public Integer peek (){
+    public Integer peek() {
         if(count < 0){
-            throw new RuntimeException("nema ničega");
+            return null;
         }
         return backingArray[count];
     }
 
-    @SuppressWarnings("Duplicates")
-    public void remove(int input){
+    //remove is here for learning purposes only
+    public void remove(int input) throws StackException{
+        if(count < 0){
+            throw new StackEmptyException();
+        }
+
         int i = 0;
 
         while (backingArray[i] != input
@@ -67,7 +70,7 @@ public class Stack {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         if(backingArray[0] == 0){
             return "";
         }
@@ -85,7 +88,10 @@ public class Stack {
         return result.toString();
     }
 
-    public int size(){
+    public int size() {
+        if (count < 0){
+            return 0;
+        }
         return count + 1;
     }
 }

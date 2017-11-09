@@ -1,8 +1,9 @@
 package dream.factory.learning.chapter11.vice.teaching.collectionsPackage.stackqueueagain;
 
-public class Queue {
+public class Queue{
     private int[] backingArray;
     private int count = -1;
+
 
 
     public Queue(int maxSize) {
@@ -13,17 +14,17 @@ public class Queue {
         this(10);
     }
 
-    public void enqueue(int input) {
+    public void enqueue(int input) throws QueueException{
         if (count == backingArray.length){
-            throw new RuntimeException("pun sam");
+            throw new QueueFullException();
         }
 
         backingArray[count++ + 1] = input;
     }
 
-    public Integer deqeueu() {
+    public Integer deqeueu() throws QueueException{
         if(count < 0){
-            throw new RuntimeException("nema ničega");
+            throw new QueueEmptyException();
         }
 
         int result = backingArray[0];
@@ -38,8 +39,12 @@ public class Queue {
         return result;
     }
 
-    @SuppressWarnings("Duplicates")
-    public void remove(int input){
+    //remove is here for learning purposes only
+    public void remove(int input) throws QueueException{
+        if(count < 0){
+            throw new QueueEmptyException();
+        }
+
         int i = 0;
 
         while (backingArray[i] != input
@@ -63,7 +68,10 @@ public class Queue {
         count--;
     }
 
-    public Integer size (){
+    public Integer size() {
+        if(count < 0){
+            return null;
+        }
         return count + 1;
     }
 

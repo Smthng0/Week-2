@@ -9,7 +9,8 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class QueueTest {
-    @Test(expected = RuntimeException.class)
+
+    @Test (expected = Exception.class)
     public void enqueue_dequeue_OK() throws Exception {
 
         Queue queue = new Queue();
@@ -26,7 +27,8 @@ public class QueueTest {
         assertEquals(2 , (int) queue.size());
         assertEquals(3 , (int) queue.deqeueu());
         assertEquals(5 , (int) queue.deqeueu());
-        assertEquals(0 , (int) queue.deqeueu());
+        assertEquals(0 , (int) queue.deqeueu()); //tu bude exception
+
     }
 
     @Test
