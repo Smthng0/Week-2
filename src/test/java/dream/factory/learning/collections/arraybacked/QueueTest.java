@@ -1,5 +1,6 @@
 package dream.factory.learning.collections.arraybacked;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
@@ -47,6 +48,7 @@ public class QueueTest {
 
     }
 
+    @Ignore
     @Test
     public void enqueue_dequeue_masu_OK() throws Exception {
         Queue queue = new Queue(1_000_000);
@@ -78,6 +80,7 @@ public class QueueTest {
 
     }
 
+    @Ignore
     @Test
     public void remove_OK() throws Exception {
         Queue queue = new Queue(1_000_000);

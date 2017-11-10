@@ -4,12 +4,14 @@ import dream.factory.learning.collections.arraybacked.Queue;
 import dream.factory.learning.collections.arraybacked.Stack;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Random;
 
 public class RemoveRandomPolaTests {
 
+    @Ignore
     @Test
     public void remove_stack_OK() throws Exception {
         Stack stack = new Stack(1_000_000);
@@ -41,6 +43,7 @@ public class RemoveRandomPolaTests {
 
     }
 
+    @Ignore
     @Test
     public void remove_queue_OK() throws Exception {
         Queue queue = new Queue(1_000_000);
@@ -72,6 +75,7 @@ public class RemoveRandomPolaTests {
 
     }
 
+    @Ignore
     @Test
     public void remove_list_OK() throws Exception {
         SortedLinkedList lista = new SortedLinkedList();

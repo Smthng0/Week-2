@@ -1,10 +1,12 @@
 package dream.factory.learning.collections.example;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class NodeTest {
+
     @Test
     public void newNode_notNull() throws Exception {
         Node node = new Node(1);
@@ -32,6 +34,7 @@ public class NodeTest {
         assertEquals("2 -> 3", node.toString());
     }
 
+    @Ignore
     @Test
     public void print_uuugelist(){
         Node node = new Node(2);
@@ -60,7 +63,7 @@ public class NodeTest {
         Node node = new Node(2);
 
         for(int i = 0; i < 100_000; i++){
-            node.addAssFirst(i);
+            node = node.addAssFirst(i);
         }
 
         assertEquals(100_001, node.size());

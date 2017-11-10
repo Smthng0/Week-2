@@ -1,5 +1,6 @@
 package dream.factory.learning.collections.arraybacked;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.joda.time.Duration;
 import org.joda.time.Instant;
@@ -36,6 +37,7 @@ public class StackTest {
 
     }
 
+    @Ignore
     @Test
     public void pop_masu_OK() throws Exception {
         Stack stack = new Stack(1_000_000);
@@ -52,6 +54,7 @@ public class StackTest {
 
     }
 
+    @Ignore
     @Test
     public void pop_push_masu_OK() throws Exception {
         Stack stack = new Stack(1_000_000);
@@ -83,6 +86,7 @@ public class StackTest {
 
     }
 
+    @Ignore
     @Test
     public void remove_OK() throws Exception {
         Stack stack = new Stack(1_000_000);
@@ -114,6 +118,7 @@ public class StackTest {
 
     }
 
+    @Ignore
     @Test
     public void exception_OK() throws Exception {
         Stack stack = new Stack(1_000_000);

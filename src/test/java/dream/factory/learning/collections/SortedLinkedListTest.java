@@ -2,6 +2,7 @@ package dream.factory.learning.collections;
 
 import org.joda.time.Duration;
 import org.joda.time.Instant;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Random;
@@ -159,6 +160,7 @@ public class SortedLinkedListTest {
         assertEquals("1 -> 2 -> 3", lista.toString());
     }
 
+    @Ignore
     @Test
     public void micanje_pola_OK() throws Exception {
         SortedLinkedList lista = new SortedLinkedList();
