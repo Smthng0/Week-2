@@ -1,7 +1,7 @@
 # Week-2
 2nd week of learning
 
-## Excercise 8.a, page 230:
+## Exercise 8.a, page 230:
 ### i need to figure out which class implements and extends what, using dash for "implements" and solid line for "extends"
 *i'll just write in words, since this is not graphical* 
 
@@ -11,10 +11,10 @@
 4. Goop extends Boop, Boop extends Zoop
 5. Alpha extends Gamma and implements Beta, Gamma extends Delta and implemets Epsilon
 
-## Excercise 8.b, page 231:
+## Exercise 8.b, page 231:
 ### i have some diagrams and have to type the inheritance/interface from the picture
 
-1. puclic class Click{}  
+1. public class Click{}  
    public  class Clack extends Click{}
 2. public abstract class Top{}  
    public class Tip extends Top{}
@@ -28,24 +28,24 @@
    public class Alpha implements Zeta{}  
    public class Delta extends Alpha implements Beta{}
 
-## Excercise 9.a, page 266:
+## Exercise 9.a, page 266:
 ### pick which line add one object for the Garbage Collector
 
 **lines 2, 4, ~~6~~, 8**
 
-## Excercise 9.b, page 267:
+## Exercise 9.b, page 267:
 ### several objects added, find the one with the most reference variables and lost how many there are...
 
-**The object with the most reference variables is: "Honey (11)" and there are x reference varables...**  
-*i didnt catch the one that creates the honey class from the racoon class which calles the kit class, there are 12 in total...*
+**The object with the most reference variables is: "Honey (11)" and there are x reference variables...**  
+*i didn't catch the one that creates the honey class from the raccoon class which calls the kit class, there are 12 in total...*
 
-## Excercise 10.a, page 310:
+## Exercise 10.a, page 310:
 ### code, will it compile and what output?
 
 Output 2 will be out, statics run first and then the constructors (when the class is called upon)  
 *I missed that the StaticSuper is missing curves...*
 
-## Excercise 10.b, page 311:
+## Exercise 10.b, page 311:
 ### true or false?
 
 1. False
