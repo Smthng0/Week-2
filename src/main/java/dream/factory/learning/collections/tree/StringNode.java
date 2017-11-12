@@ -1,11 +1,11 @@
 package dream.factory.learning.collections.tree;
 
-public class Node {
+public class StringNode {
     private String value;
-    private Node leftNode;
-    private Node rightNode;
+    private StringNode leftNode;
+    private StringNode rightNode;
 
-    public Node (String input){
+    public StringNode(String input){
         this.value = input;
     }
 
@@ -17,24 +17,24 @@ public class Node {
         this.value = value;
     }
 
-    public Node getLeftNode() {
+    public StringNode getLeftNode() {
         return leftNode;
     }
 
-    public void setLeftNode(Node leftNode) {
+    public void setLeftNode(StringNode leftNode) {
         this.leftNode = leftNode;
     }
 
-    public Node getRightNode() {
+    public StringNode getRightNode() {
         return rightNode;
     }
 
-    public void setRightNode(Node rightNode) {
+    public void setRightNode(StringNode rightNode) {
         this.rightNode = rightNode;
     }
 
     public void addLeft(String input){
-        Node node = new Node(input);
+        StringNode node = new StringNode(input);
 
         /*
         if (isHead(root)){
@@ -46,7 +46,7 @@ public class Node {
     }
 
     public void addRight(String input){
-        Node node = new Node(input);
+        StringNode node = new StringNode(input);
 
         /*
         if (isHead(input)){

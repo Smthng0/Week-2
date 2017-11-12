@@ -2,13 +2,11 @@ package dream.factory.learning.collections.tree;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-public class AwsomeStabloTest {
+public class StringTreeTest {
 
     @Test
     public void megaTest_method() throws Exception {
-        AwesomeStablo stablo = new AwesomeStablo();
+        StringTree stablo = new StringTree();
         stablo.insert("x");
         stablo.insert("z");
         stablo.insert("y");

@@ -4,11 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class NodeTest {
+public class StringNodeTest {
 
     @Test
     public void create_newNode_OK() throws Exception {
-        Node nePrazniKonstr = new Node("17");
+        StringNode nePrazniKonstr = new StringNode("17");
 
         assertEquals("17", nePrazniKonstr.getValue());
 
@@ -17,7 +17,7 @@ public class NodeTest {
 
     @Test
     public void addNode_OK() throws Exception{
-        Node node = new Node("first");
+        StringNode node = new StringNode("first");
 
         node.addLeft("left");
 

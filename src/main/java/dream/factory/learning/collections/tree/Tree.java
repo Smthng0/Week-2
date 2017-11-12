@@ -1,6 +1,6 @@
 package dream.factory.learning.collections.tree;
 
-public interface BinaryTree<T> {
+public interface Tree<T> {
     int size();
     int levels();
     String inOrder();

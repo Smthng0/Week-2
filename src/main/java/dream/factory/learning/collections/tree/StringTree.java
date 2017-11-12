@@ -1,17 +1,14 @@
 package dream.factory.learning.collections.tree;
 
 
-import dream.factory.learning.collections.example.ViceInterface;
-import dream.factory.learning.collections.exceptions.FraneCheckedException;
-
 import java.util.Stack;
 
-public class AwesomeStablo implements BinaryTree<String> {
-    private Node root;
+public class StringTree implements Tree<String> {
+    private StringNode root;
 
     @Override
     public int size(){
-        Stack<Node>  stack = new Stack<>();
+        Stack<StringNode>  stack = new Stack<>();
         if (this.root == null){
             return 0;
         }
@@ -20,7 +17,7 @@ public class AwesomeStablo implements BinaryTree<String> {
         int size = 0;
 
         while (! stack.isEmpty()){
-            Node node = stack.pop();
+            StringNode node = stack.pop();
             size++;
 
             if (node.getRightNode() != null){
@@ -47,7 +44,7 @@ public class AwesomeStablo implements BinaryTree<String> {
         return inorder(root);
     }
 
-    public String inorder(Node node){
+    public String inorder(StringNode node){
         String result = node.getValue() + " ";
 
         if(node.getLeftNode() != null){
@@ -73,17 +70,17 @@ public class AwesomeStablo implements BinaryTree<String> {
 
     @Override
     public void insert(String s) {
-        Node node = new Node (s);
+        StringNode node = new StringNode(s);
         if (root == null){
             root = node;
             return;
         }
 
-        Stack<Node>  stack = new Stack<>();
+        Stack<StringNode>  stack = new Stack<>();
 
         stack.push(root);
         while (!stack.empty()){
-            Node popNode = stack.pop();
+            StringNode popNode = stack.pop();
             if (popNode.getRightNode() == null){
                 popNode.setRightNode(node);
                 break;
