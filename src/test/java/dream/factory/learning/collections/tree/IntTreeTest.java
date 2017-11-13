@@ -2,6 +2,8 @@ package dream.factory.learning.collections.tree;
 
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.junit.Assert.*;
 
 public class IntTreeTest {
@@ -20,6 +22,55 @@ public class IntTreeTest {
         assertEquals("5 2 1 3 6 ", stablo.preOrder());
         assertEquals("1 3 2 6 5 ", stablo.postOrder());
 
+    }
+
+    @Test
+    public void nesto(){
+        IntTree tree = new IntTree(5);
+                tree.insert(4);
+        tree.insert(7);
+        tree.insert(6);
+        tree.insert(8);
+
+        Iterator<IntNode> iterator = tree.iterator();
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(iterator.next().getValue());
+
+        for (IntTree it = tree; iterator.hasNext(); ) {
+            builder.append(" -> ");
+            IntNode node = iterator.next();
+            builder.append(node.getValue());
+        }
+
+        assertEquals("5 -> 4 -> 7 -> 6 -> 8", builder.toString());
+    }
+
+    @Test
+    public void nesto_foreach(){
+        IntTree tree = new IntTree(5);
+        tree.insert(3);
+        tree.insert(7);
+        tree.insert(6);
+        tree.insert(8);
+
+        StringBuilder builder = new StringBuilder();
+
+        for (IntNode intNode : tree) {
+            builder.append(" ")
+                    .append(intNode.getValue());
+        }
+
+        builder.append(System.getProperty("line.separator"));
+        tree.insert(2);
+        tree.insert(4);
+
+        for (IntNode intNode : tree) {
+            builder.append(" ")
+                    .append(intNode.getValue());
+        }
+
+        System.out.println(builder.toString());
     }
 
     @Test

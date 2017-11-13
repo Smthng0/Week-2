@@ -1,9 +1,18 @@
 package dream.factory.learning.collections.tree;
 
+import java.util.ArrayDeque;
+import java.util.Iterator;
 import java.util.Stack;
 
-public class IntTree implements Tree<Integer> {
+public class IntTree implements Tree<Integer>,  Iterable<IntNode> {
     private IntNode root;
+
+    public IntTree() {
+    }
+
+    public IntTree(int root) {
+        this.root = new IntNode(root);
+    }
 
     @Override
     public int size() {
@@ -149,8 +158,7 @@ public class IntTree implements Tree<Integer> {
             if (input <= iterator.getValue()){
 
                 if (iterator.getLeftNode() == null){
-                    iterator.addLeft(input);
-                    return;
+                    break;
                 } else {
                     iterator = iterator.getLeftNode();
                 }
@@ -158,8 +166,7 @@ public class IntTree implements Tree<Integer> {
             } else if (input > iterator.getValue()) {
 
                 if (iterator.getRightNode() == null){
-                    iterator.addRight(input);
-                    return;
+                    break;
                 } else {
                     iterator = iterator.getRightNode();
                 }
@@ -173,5 +180,49 @@ public class IntTree implements Tree<Integer> {
             iterator.addRight(input);
         }
 
+    }
+
+    public void remove(Integer input){
+        if (root == null) {
+            root = new IntNode(input);
+            return;
+        }
+
+        // za vikend ako imam vremena, slozit nekakav remove
+        return;
+    }
+
+    @Override
+    public Iterator<IntNode> iterator() {
+        return new MyTreeIterator(root);
+    }
+
+    private class MyTreeIterator
+            implements Iterator<IntNode> {
+        private ArrayDeque<IntNode> queue = new ArrayDeque();
+
+        public MyTreeIterator(IntNode root) {
+            queue.add(root);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return ! queue.isEmpty();
+        }
+
+        @Override
+        public IntNode next() {
+            IntNode node = queue.remove();
+
+            if (node.getLeftNode()!= null){
+                queue.add(node.getLeftNode());
+            }
+
+            if (node.getRightNode()!= null){
+                queue.add(node.getRightNode());
+            }
+
+            return node;
+        }
     }
 }
