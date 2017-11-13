@@ -4,8 +4,6 @@ import java.util.Stack;
 
 public class IntTree implements Tree<Integer> {
     private IntNode root;
-    private String string;
-
 
     @Override
     public int size() {
@@ -68,24 +66,23 @@ public class IntTree implements Tree<Integer> {
             return "";
         }
 
-        string = "";
-
         return inorder(root);
     }
 
     public String inorder(IntNode node){
+        String result = "";
 
         if(node.getLeftNode() != null){
-            string = inorder(node.getLeftNode());
+            result += inorder(node.getLeftNode());
         }
 
-        string += node.getValue() + " ";
+        result += node.getValue() + " ";
 
         if(node.getRightNode() != null){
-            string = inorder(node.getRightNode());
+            result += inorder(node.getRightNode());
         }
 
-        return string;
+        return result;
     }
 
     @Override
@@ -94,24 +91,23 @@ public class IntTree implements Tree<Integer> {
             return "";
         }
 
-        string = "";
-
         return preorder(root);
     }
 
     public String preorder(IntNode node){
+        String result = "";
 
-        string += node.getValue() + " ";
+        result += node.getValue() + " ";
 
         if(node.getLeftNode() != null){
-            string = preorder(node.getLeftNode());
+            result += preorder(node.getLeftNode());
         }
 
         if(node.getRightNode() != null){
-            string = preorder(node.getRightNode());
+            result += preorder(node.getRightNode());
         }
 
-        return string;
+        return result;
     }
 
     @Override
@@ -120,57 +116,61 @@ public class IntTree implements Tree<Integer> {
             return "";
         }
 
-        string = "";
-
         return postorder(root);
     }
 
     public String postorder(IntNode node){
+        String result = "";
 
         if(node.getLeftNode() != null){
-            string = postorder(node.getLeftNode());
+            result += postorder(node.getLeftNode());
         }
 
         if(node.getRightNode() != null){
-            string = postorder(node.getRightNode());
+            result += postorder(node.getRightNode());
         }
 
-        string += node.getValue() + " ";
+        result += node.getValue() + " ";
 
-        return string;
+        return result;
     }
 
     @Override
-    public void insert(Integer i) {
+    public void insert(Integer input) {
         if (root == null) {
-            root = new IntNode(i);
+            root = new IntNode(input);
             return;
         }
 
         IntNode iterator = root;
         while (iterator.getLeftNode() != null
                 || iterator.getRightNode() != null){
-            if (i <= iterator.getValue()){
+
+            if (input <= iterator.getValue()){
+
                 if (iterator.getLeftNode() == null){
-                    iterator.addLeft(i);
+                    iterator.addLeft(input);
                     return;
                 } else {
                     iterator = iterator.getLeftNode();
                 }
-            } else if (i > iterator.getValue()) {
+
+            } else if (input > iterator.getValue()) {
+
                 if (iterator.getRightNode() == null){
-                    iterator.addRight(i);
+                    iterator.addRight(input);
                     return;
                 } else {
                     iterator = iterator.getRightNode();
                 }
+
             }
         }
 
-        if (i <= iterator.getValue()){
-            iterator.addLeft(i);
+        if (input <= iterator.getValue()){
+            iterator.addLeft(input);
         } else {
-            iterator.addRight(i);
+            iterator.addRight(input);
         }
 
     }
