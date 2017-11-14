@@ -63,5 +63,23 @@ Output 2 will be out, statics run first and then the constructors (when the clas
 13. False
 14. False
 
- 
+## Sharpen your pencil 16.b, page 555:
+### fill-in-the-blanks
+
+1. Comparable
+2. CompareTo()
+3. Yes
+4. Yes
+5. Yes
+6. No
+7. No
+8. Comparator
+9. compare()
+
+*statements 1, 2, 4, 5, 9 would compile!*
+
+## Exercise 16.a, page 576:
+### compiles or doesn't compile?
+
+*statements 1, 2, 4, 5, 9 would compile!*
    
