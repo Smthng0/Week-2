@@ -67,7 +67,7 @@ Output 2 will be out, statics run first and then the constructors (when the clas
 ### fill-in-the-blanks
 
 1. Comparable
-2. CompareTo()
+2. compareTo()
 3. Yes
 4. Yes
 5. Yes
