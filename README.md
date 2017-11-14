@@ -76,8 +76,6 @@ Output 2 will be out, statics run first and then the constructors (when the clas
 8. Comparator
 9. compare()
 
-*statements 1, 2, 4, 5, 9 would compile!*
-
 ## Exercise 16.a, page 576:
 ### compiles or doesn't compile?
 
