@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TestBOM {
+
     public static void main(String[] args) {
         File file = new File("test-enkoding.txt");
 
@@ -19,6 +20,7 @@ public class TestBOM {
             ex.printStackTrace();
         }
 
-
+        TestCallOnlyMethod.radiNesto();
     }
 }
+
