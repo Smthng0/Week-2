@@ -26,14 +26,14 @@ public class Jukebox8 {
     }
 
     void getSongs() {
-        try {
-            File file = new File("SongListDuplicate.txt");
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        File file = new File("SongListDuplicate.txt");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))){
             String line = null;
+
             while ((line = reader.readLine()) != null) {
                 addSong(line);
             }
-            reader.close();
         }
         catch (Exception ex) {
             ex.printStackTrace();

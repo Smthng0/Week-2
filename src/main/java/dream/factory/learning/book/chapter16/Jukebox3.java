@@ -29,14 +29,13 @@ public class Jukebox3 {
     }
 
     void getSongs() {
-        try {
-            File file = new File("SongListMore.txt");
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        File file = new File("SongListMore.txt");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))){
             String line = null;
             while ((line = reader.readLine()) != null) {
                 addSong(line);
             }
-            reader.close();
         }
         catch (Exception ex) {
             ex.printStackTrace();

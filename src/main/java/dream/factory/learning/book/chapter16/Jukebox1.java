@@ -1,8 +1,8 @@
 package dream.factory.learning.book.chapter16;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import dream.factory.learning.collections.exceptions.FraneCheckedException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,16 +24,18 @@ public class Jukebox1 {
     }
 
     void getSongs() {
-        try {
-            File file = new File("SongList.txt");
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+        File file = new File("SongList.txt");
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line = null;
             while ((line = reader.readLine()) != null){
                 addSong(line);
             }
         }
-        catch (Exception ex) {
-            ex.printStackTrace();
+        catch (IOException ex) {
+            System.out.println("1");
+        } finally {
+            System.out.println("3");
         }
     }
 

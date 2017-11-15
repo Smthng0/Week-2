@@ -8,12 +8,18 @@ public class Song implements Comparable<Song> {
 
     @Override
     public boolean equals(Object aSong) {
+        if (!(aSong instanceof Song)){
+            return false;
+        }
         Song s = (Song) aSong;
         return getTitle().equals(s.getTitle());
     }
 
     @Override
     public int hashCode() {
+        if (this.title == null){
+            return 0;
+        }
         return title.hashCode();
     }
 
