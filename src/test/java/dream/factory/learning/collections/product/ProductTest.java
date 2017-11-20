@@ -3,6 +3,10 @@ package dream.factory.learning.collections.product;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
@@ -100,6 +104,50 @@ public class ProductTest {
         assertEquals(novi.hashCode(), frane.hashCode());
         assertTrue(novi.equals(isti)); //AssertionError
         assertEquals(novi, isti); //AssertionError
+
+    }
+
+    @Test
+    public void productImage_Stream_OK(){
+        List<Product> array = new ArrayList<>();
+        Random random = new Random();
+        hashMap = new HashMap<>();
+        imageMap = new HashMap<>();
+
+
+        for (Integer i = 0; i < 10_000; i++){
+            Product product = new Product.ProductBuilder("Product_" + i)
+                    .price(random.nextInt(99)+1)
+                    .id(i.toString())
+                    .category(category[random.nextInt(5)])
+                    .build();
+
+            int initialCapacity = random.nextInt(5) + 1;
+            ArrayList<ProductImage> image = new ArrayList<>();
+
+            for (Integer j = 0; j < initialCapacity; j++){
+                image.add(new ProductImage(product.getName(), j));
+            }
+
+            array.add(product);
+            imageMap.put(product, image);
+        }
+
+        Map<String, Product> collect = array.stream()
+                .collect(
+                        Collectors.toMap(Product::getId, Function.identity())
+                );
+
+
+        Map<String, List<Product>> bla = array.stream()
+                .collect(
+                        Collectors.groupingBy(Product::getCategory, Collectors.toList())
+                );
+
+
+
+        System.out.println(Collections.singletonList(hashMap));
+        System.out.println(Collections.singletonList(imageMap));
 
     }
 
